@@ -1,87 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_marginBottom="10dp"
+
+<LinearLayout android:layout_marginBottom="7dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:elevation="2dp"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:background="@color/white">
+    android:background="@android:drawable/dialog_holo_light_frame"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingRight="10dp">
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
         <ImageView
             android:id="@+id/news_image"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:src="@mipmap/ic_launcher_round" />
+            android:layout_width="0dp"
+            android:scaleType="centerCrop"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.5"
+            android:src="@mipmap/ic_launcher_round"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/like_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_favorite_border"
-                android:onClick="like"
-                android:background="@android:color/transparent"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:orientation="horizontal">
+                <me.grantland.widget.AutofitTextView
+                    android:textSize="13sp"
+                    android:textColor="#332233"
+                    android:id="@+id/news_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:text="@string/title"/>
 
-            <ImageButton
-                android:id="@+id/share_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:actionProviderClass="android.widget.ShareActionProvider"
-                android:src="@drawable/ic_menu_share"
-                android:background="@android:color/transparent"/>
+                <ImageButton
+                    android:id="@+id/remove_news_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_close"
+                    android:background="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="@color/red"
+                    android:id="@+id/news_author"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/author"/>
+                <TextView
+                    android:gravity="end"
+                    android:textSize="12sp"
+                    android:id="@+id/date_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_weight="2"
+                    android:id="@+id/like_button"
+                    android:scaleType="centerCrop"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:src="@mipmap/ic_like_purple"
+                    android:layout_gravity="center"/>
+
+                <ImageButton
+                    android:layout_weight="2"
+                    android:id="@+id/share_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:actionProviderClass="android.widget.ShareActionProvider"
+                    android:background="@mipmap/ic_share_purple"
+                    android:layout_gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_weight="3"
+                    android:id="@+id/expand_button"
+                    android:background="@mipmap/ic_expand_more"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
 
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:background="@android:color/transparent">
-
-        <TextView
-            android:id="@+id/news_title"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/title"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textColor="@color/red"/>
-
-        <TextView
-            android:id="@+id/news_author"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="@string/author"
-            android:textSize="15sp"
-            android:textColor="@color/red"/>
-
-        <TextView
-            android:textSize="10sp"
+        </LinearLayout>
+    <TextView
+            android:textColor="@color/red"
+            android:textSize="14sp"
             android:id="@+id/news_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/text"
-            android:textColor="@color/red"/>
-
-
-
-    </LinearLayout>
+            android:text="@string/text"/>
 
 </LinearLayout>
